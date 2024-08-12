@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getReviews} from "../../services";
-import {NoReviewInfo, Title, Wrapper} from "./Reviews.styled";
+import {NoReviewInfo, Title} from "./Reviews.styled";
 import ReviewsList from "./List/ReviewsList";
 import Loader from "../Loader/Loader";
 import Error from "../Error/Error";
