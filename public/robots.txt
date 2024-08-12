@@ -1,3 +1,8 @@
-# https://www.robotstxt.org/robotstxt.html
+User-agent: Yandex
+Disallow: /
+
+User-agent: Mail.Ru
+Disallow: /
+
 User-agent: *
 Disallow:
