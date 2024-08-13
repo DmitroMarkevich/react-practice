@@ -54,16 +54,18 @@ const Cast = () => {
     <div>
       {loading && <Loader/>}
       <Title>Cast Information</Title>
-      <CastsList casts={displayedCasts}/>
 
       {casts.length > 0 ? (
-        <Pagination
-          current={page}
-          pageSize={CASTS_PER_PAGE}
-          total={casts.length}
-          onChange={handlePageChange}
-          showSizeChanger={false}
-        />
+        <>
+          <CastsList casts={displayedCasts}/>
+          <Pagination
+            current={page}
+            pageSize={CASTS_PER_PAGE}
+            total={casts.length}
+            onChange={handlePageChange}
+            showSizeChanger={false}
+          />
+        </>
       ) : (
         <NoCastInfo>No cast information available.</NoCastInfo>
       )}

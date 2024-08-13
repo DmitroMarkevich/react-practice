@@ -26,7 +26,7 @@ const MovieDetails = () => {
   const [error, setError] = useState(null);
   const location = useLocation();
 
-  const backLinkHref = useRef(location.state?.from ?? '/movies');
+  const backLinkHref = useRef(location.state?.from ?? '/react-practice/movies');
 
   useEffect(() => {
     const fetchMovie = async () => {

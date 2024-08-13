@@ -10,7 +10,7 @@ export const MoviesList = ({movies}) => {
       <ul>
         {movies.map(movie => (
           <Item key={movie.id}>
-            <StyledLink to={`/movies/${movie.id}`} state={{from: location}}>{movie.title}</StyledLink>
+            <StyledLink to={`/react-practice/movies/${movie.id}`} state={{from: location}}>{movie.title}</StyledLink>
           </Item>
         ))}
       </ul>
