@@ -1,11 +1,8 @@
 import axios from 'axios';
-import {BASE_URL, API_KEY} from './config';
+import {BASE_URL} from './config';
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
-  params: {
-    api_key: API_KEY,
-  },
   timeout: 10000,
 });
 
@@ -23,51 +20,27 @@ const fetchData = async (url, options = {}) => {
   }
 };
 
-export const getTrending = () => {
-  return fetchData('/trending/movie/day');
-};
-
-export const getMovieDetails = (movieId) => {
-  if (!movieId) {
-    return Promise.reject(new Error('Movie ID is required'));
+export const getPlantDetails = (plantId) => {
+  if (!plantId) {
+    return Promise.reject(new Error('Plant ID is required'));
   }
 
-  return fetchData(`/movie/${movieId}`);
+  return fetchData(`/species/${plantId}`);
 };
 
-export const getMovies = (movieName, page) => {
-  if (!movieName) {
-    return Promise.reject(new Error('Movie name is required'));
+export const getPlants = (plantName, page) => {
+  if (!plantName) {
+    return Promise.reject(new Error('Plant name is required'));
   }
 
-  return fetchData('/search/movie', {
+  console.log(plantName)
+
+  return fetchData('/species', {
     params: {
-      query: movieName,
-      page: page
+      name: plantName,
+      country: 'UA',
+      offset: (page - 1) * 20,
+      limit: 20
     },
   });
 }
-
-export const getCast = (movieId, page) => {
-  if (!movieId) {
-    return Promise.reject(new Error('Movie ID is required'));
-  }
-
-  return fetchData(`/movie/${movieId}/credits`, {
-    params: {
-      page: page
-    }
-  });
-};
-
-export const getReviews = (movieId, page) => {
-  if (!movieId) {
-    return Promise.reject(new Error('Movie ID is required'));
-  }
-
-  return fetchData(`/movie/${movieId}/reviews`, {
-    params: {
-      page: page
-    }
-  });
-};

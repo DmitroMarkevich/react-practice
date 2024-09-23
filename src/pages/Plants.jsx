@@ -1,57 +1,57 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {Pagination} from 'antd';
-import {getMovies} from '../services';
+import {getPlants} from '../services';
 import {SearchBox} from '../components/SearchBox/SearchBox';
-import {MoviesList} from '../components/MoviesList/MoviesList';
+import {PlantsList} from '../components/PlantsList/PlantsList';
 import {useSearchParams} from "react-router-dom";
 import Loader from "../components/Loader/Loader";
 import Error from "../components/Error/Error";
 
-const MOVIES_PER_PAGE = 20;
+const PLANTS_PER_PAGE = 20;
 
-const Movies = () => {
+const Plants = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [movies, setMovies] = useState([]);
+  const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  const prevFilmNameRef = useRef('');
+  const prevPlantNameRef = useRef('');
   const prevPageRef = useRef(1);
 
-  const filmName = searchParams.get('query') || '';
+  const plantName = searchParams.get('query') || '';
 
   useEffect(() => {
-    if (filmName === prevFilmNameRef.current && page === prevPageRef.current) {
+    if (plantName === prevPlantNameRef.current && page === prevPageRef.current) {
       return;
     }
 
-    prevFilmNameRef.current = filmName;
+    prevPlantNameRef.current = plantName;
     prevPageRef.current = page;
 
-    const fetchMovies = async () => {
+    const fetchPlants = async () => {
       setLoading(true);
+
       try {
-        const response = await getMovies(filmName, page);
-        setMovies(response.results);
-        setTotalPages(response.total_pages);
+        const response = await getPlants(plantName, page);
+        setPlants(response.results);
       } catch (err) {
-        setError('Failed to fetch movies. Please try again later.');
-        console.error("Error fetching movies:", err);
+        setError('Failed to fetch plants. Please try again later.');
+        console.error("Error fetching plants:", err);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchMovies();
-  }, [filmName, page]);
+    fetchPlants();
+  }, [plantName, page]);
 
   const handleSearchSubmit = (value) => {
-    if (value !== prevFilmNameRef.current) {
+    if (value !== prevPlantNameRef.current) {
       setSearchParams({query: value});
       setPage(1);
-      setMovies([]);
+      setPlants([]);
     }
   };
 
@@ -67,12 +67,12 @@ const Movies = () => {
     <div>
       {loading && <Loader/>}
       <SearchBox onSubmit={handleSearchSubmit}/>
-      <MoviesList movies={movies}/>
-      {filmName && movies.length > 0 && (
+      <PlantsList plants={plants}/>
+      {plantName && plants.length > 0 && (
         <Pagination
           current={page}
-          pageSize={MOVIES_PER_PAGE}
-          total={totalPages * MOVIES_PER_PAGE}
+          pageSize={PLANTS_PER_PAGE}
+          total={totalPages * PLANTS_PER_PAGE}
           onChange={handlePageChange}
         />
       )}
@@ -80,4 +80,4 @@ const Movies = () => {
   );
 };
 
-export default Movies;
+export default Plants;

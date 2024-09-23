@@ -12,12 +12,13 @@ export const SearchBox = ({onSubmit}) => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    if (input.trim() === '') {
-      alert('Enter the movie title!');
+    const trimmedInput = input.trim();
+    if (trimmedInput === '') {
+      alert('Please enter a plant name!');
       return;
     }
 
-    onSubmit(input);
+    onSubmit(trimmedInput);
     setInput('');
   };
 
@@ -28,6 +29,7 @@ export const SearchBox = ({onSubmit}) => {
           type="text"
           value={input}
           onChange={handleInputChange}
+          placeholder="Bombycilla (for example)"
         />
         <Button type="submit">Search</Button>
       </Form>

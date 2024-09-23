@@ -20,10 +20,6 @@ export const Message = styled.p`
   font-size: 1rem;
 `;
 
-export const Details = styled.p`
-
-`;
-
 export const BackLink = styled(Link)`
   color: #004085;
   text-decoration: underline;
