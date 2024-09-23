@@ -29,7 +29,7 @@ const SharedLayout = () => {
       </main>
       <footer>
         <Footer>
-          <FooterText>!White Powder! Markevych Dmytro, 6ПІ-22б.</FooterText>
+          <FooterText>Markevych Dmytro, 6ПІ-22б.</FooterText>
         </Footer>
       </footer>
     </div>
