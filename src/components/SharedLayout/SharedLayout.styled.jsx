@@ -2,6 +2,7 @@ import {styled} from "styled-components";
 import {NavLink} from "react-router-dom";
 
 export const NavBar = styled.nav`
+  position: fixed;
   background-color: #4CAF50;
   height: 60px;
   width: 100%;
@@ -45,7 +46,6 @@ export const Footer = styled.footer`
   color: #fff;
   text-align: center;
   padding: 20px 0;
-  position: fixed;
   bottom: 0;
   width: 100%;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
