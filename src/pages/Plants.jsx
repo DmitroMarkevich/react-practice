@@ -64,7 +64,7 @@ const Plants = () => {
   }
 
   return (
-    <div>
+    <div style={{paddingBottom: '50px'}}>
       {loading && <Loader/>}
       <SearchBox onSubmit={handleSearchSubmit}/>
       <PlantsList plants={plants}/>

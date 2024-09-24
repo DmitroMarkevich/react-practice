@@ -13,10 +13,20 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
     background-color: var(--background-color);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
   }
 
   code {

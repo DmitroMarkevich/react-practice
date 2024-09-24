@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  padding: 16px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 `;
 
 export const Form = styled.form`

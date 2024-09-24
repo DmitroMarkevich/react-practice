@@ -51,6 +51,7 @@ export const Footer = styled.footer`
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 15px 15px 0 0;
   font-family: 'Georgia', serif;
+  margin-top: auto;
 `;
 
 export const FooterText = styled.p`

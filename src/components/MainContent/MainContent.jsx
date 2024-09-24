@@ -17,13 +17,6 @@ import {
   Title
 } from "./MainContent.styled";
 
-const herbImages = {
-  chamomile: "../../images/chamomile.jpg",
-  // wormwood: "path/to/wormwood.jpg",
-  // meadowsweet: "path/to/meadowsweet.jpg",
-  // lavender: "path/to/lavender.jpg",
-};
-
 const MainContent = () => {
   return (
     <>

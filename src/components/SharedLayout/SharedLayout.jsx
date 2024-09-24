@@ -28,9 +28,9 @@ const SharedLayout = () => {
         </Suspense>
       </main>
       <footer>
-        <Footer>
+        <footer>
           <FooterText>Markevych Dmytro, 6ПІ-22б.</FooterText>
-        </Footer>
+        </footer>
       </footer>
     </div>
   );
